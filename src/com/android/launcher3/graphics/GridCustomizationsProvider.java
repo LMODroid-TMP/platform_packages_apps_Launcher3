@@ -15,10 +15,13 @@
  */
 package com.android.launcher3.graphics;
 
+import static com.android.launcher3.LauncherPrefs.getPrefs;
 import static com.android.launcher3.LauncherPrefs.THEMED_ICONS;
 import static com.android.launcher3.util.Executors.MAIN_EXECUTOR;
 import static com.android.launcher3.util.Executors.UI_HELPER_EXECUTOR;
+import static com.android.launcher3.util.Themes.KEY_THEMED_ICON_PACK;
 import static com.android.launcher3.util.Themes.isThemedIconEnabled;
+import static com.android.launcher3.util.Themes.getThemedIconPack;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -100,6 +103,8 @@ public class GridCustomizationsProvider extends ContentProvider {
     private final Set<PreviewLifecycleObserver> mActivePreviews =
             Collections.newSetFromMap(new WeakHashMap<>());
 
+    private static final String THEMED_ICON_PACK = "/themed_icon_pack";
+
     @Override
     public boolean onCreate() {
         return true;
@@ -128,6 +133,11 @@ public class GridCustomizationsProvider extends ContentProvider {
             case ICON_THEMED: {
                 MatrixCursor cursor = new MatrixCursor(new String[]{BOOLEAN_VALUE});
                 cursor.newRow().add(BOOLEAN_VALUE, isThemedIconEnabled(getContext()) ? 1 : 0);
+                return cursor;
+            }
+            case THEMED_ICON_PACK: {
+                MatrixCursor cursor = new MatrixCursor(new String[] {KEY_NAME});
+                cursor.newRow().add(KEY_NAME, getThemedIconPack(getContext()));
                 return cursor;
             }
             default:
@@ -191,6 +201,12 @@ public class GridCustomizationsProvider extends ContentProvider {
                 LauncherPrefs.get(context)
                         .put(THEMED_ICONS, values.getAsBoolean(BOOLEAN_VALUE));
                 context.getContentResolver().notifyChange(uri, null);
+                return 1;
+            }
+            case THEMED_ICON_PACK: {
+                getPrefs(getContext()).edit()
+                        .putString(KEY_THEMED_ICON_PACK, values.getAsString(KEY_NAME))
+                        .apply();
                 return 1;
             }
             default:
