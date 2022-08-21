@@ -56,6 +56,10 @@ public class SimpleBroadcastReceiver extends BroadcastReceiver {
         register(context, null, actions);
     }
 
+    public void register(Context context, int flags, String... actions) {
+        context.registerReceiver(this, getFilter(actions), flags);
+    }
+
     /**
      * Calls {@link #register(Context, Runnable, int, String...)} with null completionCallback.
      */
