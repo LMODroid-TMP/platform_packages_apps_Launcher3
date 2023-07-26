@@ -131,7 +131,10 @@ public class FallbackRecentsStateController implements StateHandler<RecentsState
                 mRecentsView.getPagedOrientationHandler().getSplitSelectTaskOffset(
                         TASK_PRIMARY_SPLIT_TRANSLATION, TASK_SECONDARY_SPLIT_TRANSLATION,
                         mActivity.getDeviceProfile());
+        setter.setFloat(mRecentsView, taskViewsFloat.first, isSplitSelectionState(state)
+                ? mRecentsView.getSplitSelectTranslation() : 0, LINEAR);
         setter.setFloat(mRecentsView, taskViewsFloat.second, 0, LINEAR);
+<<<<<<< HEAD
         if (isSplitSelectionState(state)) {
             mRecentsView.applySplitPrimaryScrollOffset();
             setter.setFloat(mRecentsView, taskViewsFloat.first,
@@ -143,6 +146,8 @@ public class FallbackRecentsStateController implements StateHandler<RecentsState
         float memInfoAlpha = state.hasMemInfoView() ? 1 : 0;
         setter.setFloat(mActivity.getMemInfoView(), MemInfoView.STATE_CTRL_ALPHA,
                 memInfoAlpha, LINEAR);
+=======
+>>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     }
 
     /**

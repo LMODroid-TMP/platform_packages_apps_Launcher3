@@ -21,7 +21,6 @@ import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
@@ -33,7 +32,6 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PatternMatcher;
 import android.os.UserHandle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -249,6 +247,7 @@ public class PackageManagerHelper {
         }
     }
 
+<<<<<<< HEAD
     /**
      * Creates an intent filter to listen for actions with a specific package in the data field.
      */
@@ -271,6 +270,10 @@ public class PackageManagerHelper {
     }
 
     public static boolean isSystemApp(@NonNull final Context context, Intent intent, String pkgName) {
+=======
+    public static boolean isSystemApp(@NonNull final Context context,
+            @NonNull final Intent intent) {
+>>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
         PackageManager pm = context.getPackageManager();
         String packageName = null;
         // If the intent is not null, let's get the package name from the intent.
