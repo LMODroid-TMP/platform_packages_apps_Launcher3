@@ -173,11 +173,8 @@ import com.android.quickstep.util.SplitToWorkspaceController;
 import com.android.quickstep.util.SplitWithKeyboardShortcutController;
 import com.android.quickstep.util.TISBindHelper;
 import com.android.quickstep.views.DesktopTaskView;
-<<<<<<< HEAD
-import com.android.quickstep.views.MemInfoView;
-=======
 import com.android.quickstep.views.FloatingTaskView;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
+import com.android.quickstep.views.MemInfoView;
 import com.android.quickstep.views.OverviewActionsView;
 import com.android.quickstep.views.RecentsView;
 import com.android.quickstep.views.TaskView;
@@ -271,14 +268,9 @@ public class QuickstepLauncher extends Launcher {
         RecentsView overviewPanel = getOverviewPanel();
         mSplitSelectStateController =
                 new SplitSelectStateController(this, mHandler, getStateManager(),
-<<<<<<< HEAD
-                        getDepthController(), getStatsLogManager());
-        overviewPanel.init(mActionsView, mSplitSelectStateController, mMemInfoView);
-=======
                         getDepthController(), getStatsLogManager(),
                         SystemUiProxy.INSTANCE.get(this), RecentsModel.INSTANCE.get(this));
-        overviewPanel.init(mActionsView, mSplitSelectStateController);
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
+        overviewPanel.init(mActionsView, mSplitSelectStateController, mMemInfoView);
         mSplitWithKeyboardShortcutController = new SplitWithKeyboardShortcutController(this,
                 mSplitSelectStateController);
         mSplitToWorkspaceController = new SplitToWorkspaceController(this,
@@ -634,13 +626,10 @@ public class QuickstepLauncher extends Launcher {
         if (FeatureFlags.CONTINUOUS_VIEW_TREE_CAPTURE.get()) {
             mViewCapture = SettingsAwareViewCapture.getInstance(this).startCapture(getWindow());
         }
-<<<<<<< HEAD
+        getWindow().addPrivateFlags(PRIVATE_FLAG_OPTIMIZE_MEASURE);
         if (!Utilities.showStatusbarEnabled(getApplicationContext())) {
             getStateManager().addStateListener(noStatusBarStateListener);
         }
-=======
-        getWindow().addPrivateFlags(PRIVATE_FLAG_OPTIMIZE_MEASURE);
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     }
 
     @Override

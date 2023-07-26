@@ -106,13 +106,6 @@ public class TaskbarViewController implements TaskbarControllers.LoggableTaskbar
     private final int mLauncherThemedIconsBackgroundColor;
     private final int mTaskbarThemedIconsBackgroundColor;
 
-<<<<<<< HEAD
-=======
-    /** Progress from {@code 0} for Launcher's color to {@code 1} for Taskbar's color. */
-    private final AnimatedFloat mThemedIconsBackgroundProgress = new AnimatedFloat(
-            this::updateIconsBackground);
-
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     private final TaskbarModelCallbacks mModelCallbacks;
 
     // Initialized in init.
@@ -157,11 +150,7 @@ public class TaskbarViewController implements TaskbarControllers.LoggableTaskbar
         mTaskbarView.init(new TaskbarViewCallbacks());
         mTaskbarView.getLayoutParams().height = isPhoneMode(mActivity.getDeviceProfile())
                 ? mActivity.getResources().getDimensionPixelSize(R.dimen.taskbar_size)
-<<<<<<< HEAD
-                : mActivity.getDeviceProfile().taskbarSize;
-=======
                 : mActivity.getDeviceProfile().taskbarHeight;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
         mTaskbarIconScaleForStash.updateValue(1f);
 
@@ -276,12 +265,8 @@ public class TaskbarViewController implements TaskbarControllers.LoggableTaskbar
     private void updateTranslationY() {
         mTaskbarView.setTranslationY(mTaskbarIconTranslationYForHome.value
                 + mTaskbarIconTranslationYForStash.value
-<<<<<<< HEAD
-                + mTaskbarIconTranslationYForSwipe);
-=======
                 + mTaskbarIconTranslationYForSwipe
                 + mTaskbarIconTranslationYForSpringOnStash);
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     }
 
     /**
@@ -458,13 +443,6 @@ public class TaskbarViewController implements TaskbarControllers.LoggableTaskbar
         setter.setFloat(mTaskbarNavButtonTranslationY, VALUE, -offsetY, interpolator);
         setter.setFloat(mTaskbarNavButtonTranslationYForInAppDisplay, VALUE, offsetY, interpolator);
 
-<<<<<<< HEAD
-=======
-        if (Utilities.isDarkTheme(mTaskbarView.getContext())) {
-            setter.addFloat(mThemedIconsBackgroundProgress, VALUE, 1f, 0f, LINEAR);
-        }
-
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
         int collapsedHeight = mActivity.getDefaultTaskbarWindowHeight();
         int expandedHeight = Math.max(collapsedHeight, taskbarDp.taskbarHeight + offsetY);
         setter.addOnFrameListener(anim -> mActivity.setTaskbarWindowHeight(

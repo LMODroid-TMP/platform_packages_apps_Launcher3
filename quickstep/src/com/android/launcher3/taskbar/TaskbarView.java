@@ -49,11 +49,7 @@ import com.android.launcher3.util.DisplayController;
 import com.android.launcher3.util.LauncherBindableItemsContainer;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.views.ActivityContext;
-<<<<<<< HEAD
-=======
-import com.android.launcher3.views.DoubleShadowBubbleTextView;
 import com.android.launcher3.views.IconButtonView;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
 import java.util.function.Predicate;
 
@@ -64,11 +60,8 @@ public class TaskbarView extends FrameLayout implements FolderIcon.FolderIconPar
         DeviceProfile.OnDeviceProfileChangeListener {
     private static final String TAG = TaskbarView.class.getSimpleName();
 
-<<<<<<< HEAD
-=======
     private static final Rect sTmpRect = new Rect();
 
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     private final int[] mTempOutLocation = new int[2];
     private final Rect mIconLayoutBounds;
     private final int mIconTouchSize;
@@ -147,13 +140,8 @@ public class TaskbarView extends FrameLayout implements FolderIcon.FolderIconPar
         // Needed to draw folder leave-behind when opening one.
         setWillNotDraw(false);
 
-<<<<<<< HEAD
-        if (FeatureFlags.ENABLE_ALL_APPS_IN_TASKBAR.get()) {
-            mAllAppsButton = LayoutInflater.from(context)
-=======
         if (!mActivityContext.getPackageManager().hasSystemFeature(FEATURE_PC)) {
             mAllAppsButton = (IconButtonView) LayoutInflater.from(context)
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
                     .inflate(R.layout.taskbar_all_apps_button, this, false);
             mAllAppsButton.setIconDrawable(resources.getDrawable(isTransientTaskbar
                     ? R.drawable.ic_transient_taskbar_all_apps_button
@@ -170,15 +158,12 @@ public class TaskbarView extends FrameLayout implements FolderIcon.FolderIconPar
         }
 
         // TODO: Disable touch events on QSB otherwise it can crash.
-<<<<<<< HEAD
         if (Utilities.showQSB(context)) {
             mQsb = LayoutInflater.from(context).inflate(R.layout.search_container_hotseat, this, false);
         } else {
             mQsb = LayoutInflater.from(context).inflate(R.layout.empty_view, this, false);
         }
 
-=======
-        mQsb = LayoutInflater.from(context).inflate(R.layout.search_container_hotseat, this, false);
     }
 
     @Override
@@ -223,7 +208,6 @@ public class TaskbarView extends FrameLayout implements FolderIcon.FolderIconPar
      */
     public int getIconTouchSize() {
         return mIconTouchSize;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     }
 
     protected void init(TaskbarViewController.TaskbarViewCallbacks callbacks) {
@@ -354,24 +338,6 @@ public class TaskbarView extends FrameLayout implements FolderIcon.FolderIconPar
             // Always set QSB to invisible after re-adding.
             mQsb.setVisibility(View.INVISIBLE);
         }
-<<<<<<< HEAD
-=======
-    }
-
-    /**
-     * Traverse all the child views and change the background of themeIcons
-     **/
-    public void setThemedIconsBackgroundColor(int color) {
-        for (View icon : getIconViews()) {
-            if (icon instanceof DoubleShadowBubbleTextView) {
-                DoubleShadowBubbleTextView textView = ((DoubleShadowBubbleTextView) icon);
-                if (textView.getIcon() != null
-                        && textView.getIcon() instanceof ThemedIconDrawable) {
-                    ((ThemedIconDrawable) textView.getIcon()).changeBackgroundColor(color);
-                }
-            }
-        }
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     }
 
     /**
