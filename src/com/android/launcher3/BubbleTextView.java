@@ -16,13 +16,10 @@
 
 package com.android.launcher3;
 
-<<<<<<< HEAD
 import static com.android.launcher3.InvariantDeviceProfile.KEY_SHOW_DESKTOP_LABELS;
 import static com.android.launcher3.InvariantDeviceProfile.KEY_SHOW_DRAWER_LABELS;
 import static com.android.launcher3.InvariantDeviceProfile.KEY_MAX_LINES;
-=======
 import static com.android.launcher3.config.FeatureFlags.ENABLE_DOWNLOAD_APP_UX_V2;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 import static com.android.launcher3.config.FeatureFlags.ENABLE_ICON_LABEL_AUTO_SCALING;
 import static com.android.launcher3.graphics.PreloadIconDrawable.newPendingIcon;
 import static com.android.launcher3.icons.BitmapInfo.FLAG_NO_BADGE;
@@ -419,12 +416,6 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
     }
 
     @UiThread
-<<<<<<< HEAD
-    private void applyLabel(ItemInfoWithIcon info) {
-        if (mShouldShowLabel) {
-            setText(info.title);
-            setMaxLines(mMaxLines);
-=======
     @VisibleForTesting
     public void applyLabel(ItemInfoWithIcon info) {
         CharSequence label = info.title;
@@ -432,8 +423,10 @@ public class BubbleTextView extends TextView implements ItemInfoUpdateReceiver,
             mLastOriginalText = label;
             mLastModifiedText = mLastOriginalText;
             mBreakPointsIntArray = StringMatcherUtility.getListOfBreakpoints(label, MATCHER);
-            setText(label);
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
+            if (mShouldShowLabel) {
+                setText(label);
+                setMaxLines(mMaxLines);
+            }
         }
         if (info.contentDescription != null) {
             setContentDescription(info.isDisabled()

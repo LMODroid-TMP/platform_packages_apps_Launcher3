@@ -247,20 +247,6 @@ public class PackageManagerHelper {
         }
     }
 
-<<<<<<< HEAD
-    /**
-     * Creates an intent filter to listen for actions with a specific package in the data field.
-     */
-    public static IntentFilter getPackageFilter(String pkg, String... actions) {
-        IntentFilter packageFilter = new IntentFilter();
-        for (String action : actions) {
-            packageFilter.addAction(action);
-        }
-        packageFilter.addDataScheme("package");
-        packageFilter.addDataSchemeSpecificPart(pkg, PatternMatcher.PATTERN_LITERAL);
-        return packageFilter;
-    }
-
     public static boolean isSystemApp(@NonNull final Context context, String pkgName) {
         return isSystemApp(context, null, pkgName);
     }
@@ -270,10 +256,6 @@ public class PackageManagerHelper {
     }
 
     public static boolean isSystemApp(@NonNull final Context context, Intent intent, String pkgName) {
-=======
-    public static boolean isSystemApp(@NonNull final Context context,
-            @NonNull final Intent intent) {
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
         PackageManager pm = context.getPackageManager();
         String packageName = null;
         // If the intent is not null, let's get the package name from the intent.

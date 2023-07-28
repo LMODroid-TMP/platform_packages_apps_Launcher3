@@ -1387,20 +1387,15 @@ public class DeviceProfile {
                     hotseatBarSizePx - hotseatBarBottomPadding - hotseatCellHeightPx;
 
             int hotseatWidth = getHotseatRequiredWidth();
-<<<<<<< HEAD
-            int leftSpacing =  isTablet ? (availableWidthPx - hotseatWidth) / 2 :
-                            (availableWidthPx - hotseatQsbWidth) / 2;
-            int rightSpacing = leftSpacing;
-=======
             int startSpacing;
             int endSpacing;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
             // Hotseat aligns to the left with nav buttons
             if (hotseatBarEndOffset > 0) {
                 startSpacing = inlineNavButtonsEndSpacingPx;
                 endSpacing = availableWidthPx - hotseatWidth - startSpacing + hotseatBorderSpace;
             } else {
-                startSpacing = (availableWidthPx - hotseatWidth) / 2;
+                startSpacing = isTablet ? (availableWidthPx - hotseatWidth) / 2 :
+                            (availableWidthPx - hotseatQsbWidth) / 2;
                 endSpacing = startSpacing;
             }
             startSpacing += getAdditionalQsbSpace();

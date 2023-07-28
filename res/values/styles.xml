@@ -217,12 +217,8 @@
     </style>
     <style name="WidgetContainerTheme.Dark" parent="AppTheme.Dark">
         <item name="android:colorEdgeEffect">?android:attr/textColorSecondary</item>
-<<<<<<< HEAD
-=======
-        <item name="android:colorPrimaryDark">#616161</item> <!-- Gray 700 -->
         <item name="widgetPickerHeaderAppTitleColor">@color/app_title_text_dark</item>
         <item name="widgetPickerHeaderAppSubtitleColor">@color/app_subtitle_text_dark</item>
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     </style>
 
     <style name="FastScrollerPopup" parent="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle">
@@ -350,20 +346,19 @@
         <item name="folderFooterHeight">56dp</item>
     </style>
 
-<<<<<<< HEAD
-    <style name="QsbIconTint">
-        <item name="qsbIconTintPrimary">@color/qsb_primary</item>
-        <item name="qsbIconTintQuaternary">@color/qsb_quaternary</item>
-        <item name="qsbIconTintSecondary">@color/qsb_secondary</item>
-        <item name="qsbIconTintTertiary">@color/qsb_tertiary</item>
-=======
     <style name="CellStyleDefault">
         <item name="iconDrawablePadding">7dp</item>
     </style>
 
     <style name="AllAppsStyleDefault">
         <item name="horizontalPadding">16dp</item>
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
+    </style>
+
+    <style name="QsbIconTint">
+        <item name="qsbIconTintPrimary">@color/qsb_primary</item>
+        <item name="qsbIconTintQuaternary">@color/qsb_quaternary</item>
+        <item name="qsbIconTintSecondary">@color/qsb_secondary</item>
+        <item name="qsbIconTintTertiary">@color/qsb_tertiary</item>
     </style>
 
 </resources>

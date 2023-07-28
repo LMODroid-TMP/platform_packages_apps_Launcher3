@@ -239,13 +239,11 @@ public class ActivityAllAppsContainerView<T extends Context & ActivityContext>
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-<<<<<<< HEAD
         if (Utilities.showSearch(getContext())) {
             mSearchContainer.setVisibility(View.VISIBLE);
         } else {
             mSearchContainer.setVisibility(View.GONE);
         }
-=======
 
         mAH.get(SEARCH).setup(mSearchRecyclerView,
                 /* Filter out A-Z apps */ itemInfo -> false);
@@ -265,7 +263,6 @@ public class ActivityAllAppsContainerView<T extends Context & ActivityContext>
         getContext().getTheme().resolveAttribute(android.R.attr.colorBackground, value, true);
         mBottomSheetBackgroundColor = value.data;
         updateBackground(mActivityContext.getDeviceProfile());
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
         mSearchUiManager.initializeSearch(this);
     }
 
@@ -622,10 +619,6 @@ public class ActivityAllAppsContainerView<T extends Context & ActivityContext>
     }
 
     protected void updateHeaderScroll(int scrolledOffset) {
-<<<<<<< HEAD
-        super.updateHeaderScroll(scrolledOffset);
-        getSearchView().setBackgroundResource(R.drawable.bg_all_apps_searchbox);
-=======
         float prog1 = Utilities.boundToRange((float) scrolledOffset / mHeaderThreshold, 0f, 1f);
         int headerColor = getHeaderColor(prog1);
         int tabsAlpha = mHeader.getPeripheralProtectionHeight() == 0 ? 0
@@ -636,8 +629,8 @@ public class ActivityAllAppsContainerView<T extends Context & ActivityContext>
             mHeaderColor = headerColor;
             mTabsProtectionAlpha = tabsAlpha;
             invalidateHeader();
+        getSearchView().setBackgroundResource(R.drawable.bg_all_apps_searchbox);
         }
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
         if (mSearchUiManager.getEditText() == null) {
             return;
         }

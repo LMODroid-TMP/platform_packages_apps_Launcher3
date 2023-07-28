@@ -20,14 +20,7 @@ import static com.android.launcher3.config.FeatureFlags.KEYGUARD_ANIMATION;
 import static com.android.launcher3.icons.GraphicsUtils.setColorAlphaBound;
 
 import android.animation.ObjectAnimator;
-<<<<<<< HEAD
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-=======
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -42,14 +35,9 @@ import android.util.FloatProperty;
 import android.view.View;
 
 import com.android.launcher3.BaseDraggingActivity;
-<<<<<<< HEAD
+import com.android.launcher3.DeviceProfile;
 import com.android.launcher3.LauncherPrefs;
 import com.android.launcher3.R;
-import com.android.launcher3.Utilities;
-=======
-import com.android.launcher3.DeviceProfile;
-import com.android.launcher3.R;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.testing.shared.ResourceUtils;
 import com.android.launcher3.util.DynamicResource;
@@ -143,13 +131,8 @@ public class SysUiScrim implements View.OnAttachStateChangeListener,
         mMaskHeight = ResourceUtils.pxFromDp(ALPHA_MASK_BITMAP_DP,
                 view.getResources().getDisplayMetrics());
         mTopScrim = Themes.getAttrDrawable(view.getContext(), R.attr.workspaceStatusBarScrim);
-<<<<<<< HEAD
-        mBottomMask = mTopScrim == null ? null : createDitheredAlphaMask();
-
         SharedPreferences prefs = LauncherPrefs.getPrefs(view.getContext());
-        mHideSysUiScrim = mTopScrim == null || !prefs.getBoolean(KEY_SHOW_TOP_SHADOW, true);
-=======
-        if (mTopScrim != null) {
+        if (mTopScrim != null && prefs.getBoolean(KEY_SHOW_TOP_SHADOW, true)) {
             mTopScrim.setDither(true);
             mBottomMask = createDitheredAlphaMask();
             mHideSysUiScrim = false;
@@ -157,7 +140,6 @@ public class SysUiScrim implements View.OnAttachStateChangeListener,
             mBottomMask = null;
             mHideSysUiScrim = true;
         }
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
         mDrawWallpaperScrim = FeatureFlags.ENABLE_WALLPAPER_SCRIM.get()
                 && !Themes.getAttrBoolean(view.getContext(), R.attr.isMainColorDark)

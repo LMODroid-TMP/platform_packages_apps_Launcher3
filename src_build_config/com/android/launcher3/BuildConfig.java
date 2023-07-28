@@ -24,14 +24,10 @@ public final class BuildConfig {
      * Flag to state if the QSB is on the first screen and placed on the top,
      * this can be overwritten in other launchers with a different value, if needed.
      */
-<<<<<<< HEAD
     public static final boolean QSB_ON_FIRST_SCREEN = false;
-=======
-    public static final boolean QSB_ON_FIRST_SCREEN = true;
 
     /**
      * Flag to control various developer centric features
      */
     public static final boolean IS_DEBUG_DEVICE = false;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 }

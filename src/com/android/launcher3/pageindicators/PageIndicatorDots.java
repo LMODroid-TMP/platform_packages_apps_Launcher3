@@ -183,15 +183,7 @@ public class PageIndicatorDots extends View implements Insettable, PageIndicator
         mTotalScroll = totalScroll;
 
         int scrollPerPage = totalScroll / (mNumPages - 1);
-<<<<<<< HEAD
-        if (scrollPerPage == 0) {
-            return;
-        }
-
-        int pageToLeft = currentScroll / scrollPerPage;
-=======
         int pageToLeft = scrollPerPage == 0 ? 0 : currentScroll / scrollPerPage;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
         int pageToLeftScroll = pageToLeft * scrollPerPage;
         int pageToRightScroll = pageToLeftScroll + scrollPerPage;
 

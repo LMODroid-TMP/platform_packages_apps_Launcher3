@@ -341,8 +341,4 @@ class TaskMenuViewWithArrow<T : BaseDraggingActivity> : ArrowPopup<T> {
         elevation = mElevation
         mArrow.elevation = mElevation
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 }

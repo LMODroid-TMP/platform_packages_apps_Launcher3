@@ -146,10 +146,6 @@ public final class Utilities {
      * add extra logging and not for changing the app behavior.
      * @deprecated Use {@link BuildConfig#IS_DEBUG_DEVICE} directly
      */
-<<<<<<< HEAD
-    public static final boolean IS_DEBUG_DEVICE =
-            Build.TYPE.toLowerCase(Locale.ROOT).equals("eng");
-=======
     @Deprecated
     public static final boolean IS_DEBUG_DEVICE = BuildConfig.IS_DEBUG_DEVICE;
 
@@ -160,7 +156,6 @@ public final class Utilities {
 
     @IntDef({TRANSLATE_UP, TRANSLATE_DOWN, TRANSLATE_LEFT, TRANSLATE_RIGHT})
     public @interface AdjustmentDirection{}
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
     public static final String GSA_PACKAGE = "com.google.android.googlequicksearchbox";
     public static final String LENS_ACTIVITY = "com.google.android.apps.lens.MainActivity";

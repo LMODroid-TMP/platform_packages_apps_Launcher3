@@ -183,19 +183,6 @@ public final class FeatureFlags {
             "ENABLE_MINIMAL_DEVICE", false,
             "Allow user to toggle minimal device mode in launcher.");
 
-<<<<<<< HEAD
-    // TODO: b/172467144 Remove ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE feature flag.
-    public static final BooleanFlag ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE = new DeviceFlag(
-            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", true, "Enables a "
-            + "crossfade animation when the system these changes.");
-
-    // TODO: b/174174514 Remove ENABLE_APP_PREDICTIONS_WHILE_VISIBLE feature flag.
-    public static final BooleanFlag ENABLE_APP_PREDICTIONS_WHILE_VISIBLE = new DeviceFlag(
-            "ENABLE_APP_PREDICTIONS_WHILE_VISIBLE", true, "Allows app "
-            + "predictions to be updated while they are visible to the user.");
-
-=======
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
     public static final BooleanFlag ENABLE_TASKBAR_POPUP_MENU = getDebugFlag(
             270392477, "ENABLE_TASKBAR_POPUP_MENU", true,
             "Enables long pressing taskbar icons to show the popup menu.");

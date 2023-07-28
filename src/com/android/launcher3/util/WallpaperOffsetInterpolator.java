@@ -6,12 +6,7 @@ import static com.android.launcher3.util.Executors.UI_HELPER_EXECUTOR;
 
 import android.app.WallpaperManager;
 import android.content.Context;
-<<<<<<< HEAD
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-=======
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -29,12 +24,8 @@ import com.android.launcher3.anim.Interpolators;
 /**
  * Utility class to handle wallpaper scrolling along with workspace.
  */
-<<<<<<< HEAD
-public class WallpaperOffsetInterpolator extends BroadcastReceiver implements
+public class WallpaperOffsetInterpolator implements
         SharedPreferences.OnSharedPreferenceChangeListener {
-=======
-public class WallpaperOffsetInterpolator {
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
     private static final int[] sTempInt = new int[2];
     private static final String TAG = "WPOffsetInterpolator";

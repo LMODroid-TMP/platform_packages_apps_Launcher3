@@ -47,13 +47,6 @@ import com.android.launcher3.LauncherPrefs;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.model.WidgetsModel;
-<<<<<<< HEAD
-=======
-import com.android.launcher3.states.RotationHelper;
-import com.android.launcher3.uioverrides.flags.DeveloperOptionsFragment;
-import com.android.launcher3.uioverrides.plugins.PluginManagerWrapper;
-import com.android.launcher3.util.DisplayController;
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
@@ -81,13 +74,6 @@ public class SettingsActivity extends CollapsingToolbarBaseActivity
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         Intent intent = getIntent();
-<<<<<<< HEAD
-=======
-        if (intent.hasExtra(EXTRA_FRAGMENT) || intent.hasExtra(EXTRA_FRAGMENT_ARGS)
-                || intent.hasExtra(EXTRA_FRAGMENT_ARG_KEY)) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
         if (savedInstanceState == null) {
             Bundle args = intent.getBundleExtra(EXTRA_FRAGMENT_ARGS);

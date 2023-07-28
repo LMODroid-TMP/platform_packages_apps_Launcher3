@@ -74,15 +74,13 @@ public class LauncherAppState implements SafeCloseable {
     private final InvariantDeviceProfile mInvariantDeviceProfile;
     private final RunnableList mOnTerminateCallback = new RunnableList();
 
-<<<<<<< HEAD
     private boolean mNeedsRestart;
-=======
+
     // WORKAROUND: b/269335387 remove this after widget background listener is enabled
     /* Array of RemoteViews cached by Launcher process */
     @GuardedBy("itself")
     @NonNull
     public final SparseArray<RemoteViews> mCachedRemoteViews = new SparseArray<>();
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
     public static LauncherAppState getInstance(final Context context) {
         return INSTANCE.get(context);
