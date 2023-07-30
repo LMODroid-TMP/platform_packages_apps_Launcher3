@@ -327,13 +327,8 @@ public final class FeatureFlags {
             "FOLDABLE_SINGLE_PAGE", false,
             "Use a single page for the workspace");
 
-<<<<<<< HEAD
-    public static final BooleanFlag ENABLE_TRANSIENT_TASKBAR = getDebugFlag(
-            "ENABLE_TRANSIENT_TASKBAR", false, "Enables transient taskbar.");
-=======
     public static final BooleanFlag ENABLE_TRANSIENT_TASKBAR = getDebugFlag(270395798,
             "ENABLE_TRANSIENT_TASKBAR", true, "Enables transient taskbar.");
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 
     public static final BooleanFlag SECONDARY_DRAG_N_DROP_TO_PIN = getDebugFlag(270395140,
             "SECONDARY_DRAG_N_DROP_TO_PIN", false,

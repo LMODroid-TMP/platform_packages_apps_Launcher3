@@ -772,7 +772,65 @@ public final class Utilities {
         ));
     }
 
-<<<<<<< HEAD
+    /**
+     * Translates the {@code targetView} so that it overlaps with {@code exclusionBounds} as little
+     * as possible, while remaining within {@code inclusionBounds}.
+     * <p>
+     * {@code inclusionBounds} will always take precedence over {@code exclusionBounds}, so if
+     * {@code targetView} needs to be translated outside of {@code inclusionBounds} to fully fix an
+     * overlap with {@code exclusionBounds}, then {@code targetView} will only be translated up to
+     * the border of {@code inclusionBounds}.
+     * <p>
+     * Note: {@code targetViewBounds}, {@code inclusionBounds} and {@code exclusionBounds} must all
+     * be in relation to the same reference point on screen.
+     * <p>
+     * @param targetView the view being translated
+     * @param targetViewBounds the bounds of the {@code targetView}
+     * @param inclusionBounds the bounds the {@code targetView} absolutely must stay within
+     * @param exclusionBounds the bounds to try to move the {@code targetView} away from
+     * @param adjustmentDirection the translation direction that should be attempted to fix an
+     *                            overlap
+     */
+    public static void translateOverlappingView(
+            @NonNull View targetView,
+            @NonNull Rect targetViewBounds,
+            @NonNull Rect inclusionBounds,
+            @NonNull Rect exclusionBounds,
+            @AdjustmentDirection int adjustmentDirection) {
+        switch (adjustmentDirection) {
+            case TRANSLATE_RIGHT:
+                targetView.setTranslationX(Math.min(
+                        // Translate to the right if the view is overlapping on the left.
+                        Math.max(0, exclusionBounds.right - targetViewBounds.left),
+                        // Do not translate beyond the inclusion bounds.
+                        inclusionBounds.right - targetViewBounds.right));
+                break;
+            case TRANSLATE_LEFT:
+                targetView.setTranslationX(Math.max(
+                        // Translate to the left if the view is overlapping on the right.
+                        Math.min(0, exclusionBounds.left - targetViewBounds.right),
+                        // Do not translate beyond the inclusion bounds.
+                        inclusionBounds.left - targetViewBounds.left));
+                break;
+            case TRANSLATE_DOWN:
+                targetView.setTranslationY(Math.min(
+                        // Translate downwards if the view is overlapping on the top.
+                        Math.max(0, exclusionBounds.bottom - targetViewBounds.top),
+                        // Do not translate beyond the inclusion bounds.
+                        inclusionBounds.bottom - targetViewBounds.bottom));
+                break;
+            case TRANSLATE_UP:
+                targetView.setTranslationY(Math.max(
+                        // Translate upwards if the view is overlapping on the bottom.
+                        Math.min(0, exclusionBounds.top - targetViewBounds.bottom),
+                        // Do not translate beyond the inclusion bounds.
+                        inclusionBounds.top - targetViewBounds.top));
+                break;
+            default:
+                // No-Op
+        }
+    }
+
     public static void restart(final Context context) {
         MODEL_EXECUTOR.execute(() -> {
             try {
@@ -860,64 +918,4 @@ public final class Utilities {
         SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
         return prefs.getBoolean(KEY_SINGLE_PAGE_CENTER, false);
     }
-=======
-    /**
-     * Translates the {@code targetView} so that it overlaps with {@code exclusionBounds} as little
-     * as possible, while remaining within {@code inclusionBounds}.
-     * <p>
-     * {@code inclusionBounds} will always take precedence over {@code exclusionBounds}, so if
-     * {@code targetView} needs to be translated outside of {@code inclusionBounds} to fully fix an
-     * overlap with {@code exclusionBounds}, then {@code targetView} will only be translated up to
-     * the border of {@code inclusionBounds}.
-     * <p>
-     * Note: {@code targetViewBounds}, {@code inclusionBounds} and {@code exclusionBounds} must all
-     * be in relation to the same reference point on screen.
-     * <p>
-     * @param targetView the view being translated
-     * @param targetViewBounds the bounds of the {@code targetView}
-     * @param inclusionBounds the bounds the {@code targetView} absolutely must stay within
-     * @param exclusionBounds the bounds to try to move the {@code targetView} away from
-     * @param adjustmentDirection the translation direction that should be attempted to fix an
-     *                            overlap
-     */
-    public static void translateOverlappingView(
-            @NonNull View targetView,
-            @NonNull Rect targetViewBounds,
-            @NonNull Rect inclusionBounds,
-            @NonNull Rect exclusionBounds,
-            @AdjustmentDirection int adjustmentDirection) {
-        switch (adjustmentDirection) {
-            case TRANSLATE_RIGHT:
-                targetView.setTranslationX(Math.min(
-                        // Translate to the right if the view is overlapping on the left.
-                        Math.max(0, exclusionBounds.right - targetViewBounds.left),
-                        // Do not translate beyond the inclusion bounds.
-                        inclusionBounds.right - targetViewBounds.right));
-                break;
-            case TRANSLATE_LEFT:
-                targetView.setTranslationX(Math.max(
-                        // Translate to the left if the view is overlapping on the right.
-                        Math.min(0, exclusionBounds.left - targetViewBounds.right),
-                        // Do not translate beyond the inclusion bounds.
-                        inclusionBounds.left - targetViewBounds.left));
-                break;
-            case TRANSLATE_DOWN:
-                targetView.setTranslationY(Math.min(
-                        // Translate downwards if the view is overlapping on the top.
-                        Math.max(0, exclusionBounds.bottom - targetViewBounds.top),
-                        // Do not translate beyond the inclusion bounds.
-                        inclusionBounds.bottom - targetViewBounds.bottom));
-                break;
-            case TRANSLATE_UP:
-                targetView.setTranslationY(Math.max(
-                        // Translate upwards if the view is overlapping on the bottom.
-                        Math.min(0, exclusionBounds.top - targetViewBounds.bottom),
-                        // Do not translate beyond the inclusion bounds.
-                        inclusionBounds.top - targetViewBounds.top));
-                break;
-            default:
-                // No-Op
-        }
-    }
->>>>>>> cc8896c259e34c0b386291021e2cd61aa0bc7848
 }
