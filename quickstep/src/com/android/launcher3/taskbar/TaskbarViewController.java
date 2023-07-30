@@ -106,6 +106,10 @@ public class TaskbarViewController implements TaskbarControllers.LoggableTaskbar
     private final int mLauncherThemedIconsBackgroundColor;
     private final int mTaskbarThemedIconsBackgroundColor;
 
+    /** Progress from {@code 0} for Launcher's color to {@code 1} for Taskbar's color. */
+    private final AnimatedFloat mThemedIconsBackgroundProgress = new AnimatedFloat(
+            this::updateIconsBackground);
+
     private final TaskbarModelCallbacks mModelCallbacks;
 
     // Initialized in init.
@@ -442,6 +446,10 @@ public class TaskbarViewController implements TaskbarControllers.LoggableTaskbar
         setter.setFloat(mTaskbarIconTranslationYForHome, VALUE, -offsetY, interpolator);
         setter.setFloat(mTaskbarNavButtonTranslationY, VALUE, -offsetY, interpolator);
         setter.setFloat(mTaskbarNavButtonTranslationYForInAppDisplay, VALUE, offsetY, interpolator);
+
+        if (Utilities.isDarkTheme(mTaskbarView.getContext())) {
+            setter.addFloat(mThemedIconsBackgroundProgress, VALUE, 1f, 0f, LINEAR);
+        }
 
         int collapsedHeight = mActivity.getDefaultTaskbarWindowHeight();
         int expandedHeight = Math.max(collapsedHeight, taskbarDp.taskbarHeight + offsetY);

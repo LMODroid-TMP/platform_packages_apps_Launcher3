@@ -341,6 +341,21 @@ public class TaskbarView extends FrameLayout implements FolderIcon.FolderIconPar
     }
 
     /**
+     * Traverse all the child views and change the background of themeIcons
+     **/
+    public void setThemedIconsBackgroundColor(int color) {
+        for (View icon : getIconViews()) {
+            if (icon instanceof DoubleShadowBubbleTextView) {
+                DoubleShadowBubbleTextView textView = ((DoubleShadowBubbleTextView) icon);
+                if (textView.getIcon() != null
+                        && textView.getIcon() instanceof ThemedIconDrawable) {
+                    ((ThemedIconDrawable) textView.getIcon()).changeBackgroundColor(color);
+                }
+            }
+        }
+    }
+
+    /**
      * Sets OnClickListener and OnLongClickListener for the given view.
      */
     public void setClickAndLongClickListenersForIcon(View icon) {
