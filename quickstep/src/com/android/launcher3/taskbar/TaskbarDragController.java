@@ -452,7 +452,7 @@ public class TaskbarDragController extends DragController<BaseTaskbarContext> im
     }
 
     private void maybeOnDragEnd() {
-        if (!mDragObject != null && !isDragging()) {
+        if (mDragObject != null && !isDragging()) {
             ((BubbleTextView) mDragObject.originalView).setIconDisabled(false);
             mControllers.taskbarAutohideSuspendController.updateFlag(
                     TaskbarAutohideSuspendController.FLAG_AUTOHIDE_SUSPEND_DRAGGING, false);

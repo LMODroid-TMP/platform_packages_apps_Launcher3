@@ -49,6 +49,7 @@ import com.android.launcher3.util.DisplayController;
 import com.android.launcher3.util.LauncherBindableItemsContainer;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.views.ActivityContext;
+import com.android.launcher3.views.DoubleShadowBubbleTextView;
 import com.android.launcher3.views.IconButtonView;
 
 import java.util.function.Predicate;
