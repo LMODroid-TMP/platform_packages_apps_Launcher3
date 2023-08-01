@@ -164,7 +164,6 @@ public class TaskbarView extends FrameLayout implements FolderIcon.FolderIconPar
         } else {
             mQsb = LayoutInflater.from(context).inflate(R.layout.empty_view, this, false);
         }
-
     }
 
     @Override
