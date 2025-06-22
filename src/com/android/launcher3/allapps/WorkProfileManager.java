@@ -92,10 +92,10 @@ public class WorkProfileManager extends UserProfileManager
                 mWorkUtilityView.animateVisibility(false);
             } else if (page == WORK && shouldShowWorkApps()) {
                 if (getCurrentState() == STATE_ENABLED) {
-                    mWorkUtilityView.setPauseMode(true /* doPause */);
+                    // mWorkUtilityView.setPauseMode(true /* doPause */);
                     mWorkUtilityView.setOnClickListener(this::onWorkFabClickedTurnOff);
                 } else if (getCurrentState() == STATE_DISABLED) {
-                    mWorkUtilityView.setPauseMode(false /* doPause */);
+                    // mWorkUtilityView.setPauseMode(false /* doPause */);
                     mWorkUtilityView.setOnClickListener(this::onWorkFabClickedTurnOn);
                 }
                 mWorkUtilityView.animateVisibility(true);
@@ -218,7 +218,7 @@ public class WorkProfileManager extends UserProfileManager
     }
 
     private void onWorkFabClickedTurnOn(View view) {
-        if (getCurrentState() == STATE_DISABLED && mWorkModeSwitch.isEnabled()) {
+        if (getCurrentState() == STATE_DISABLED /* && mWorkModeSwitch.isEnabled() */) {
             logEvents(LAUNCHER_TURN_OFF_WORK_APPS_TAP);
             setWorkProfileEnabled(true);
         }
