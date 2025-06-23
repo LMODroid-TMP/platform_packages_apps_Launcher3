@@ -90,8 +90,7 @@ public class IconPackHeaderPreference extends RadioHeaderPreference {
 
         final IconProvider iconProvider = IconProvider.INSTANCE.get(context);
         final PackageManager pm = context.getPackageManager();
-        final LauncherApps launcherApps = context.getSystemService(LauncherApps.class);
-        new GetLaunchableInfoTask(pm, launcherApps, PREVIEW_ICON_NUM, (aiList) -> {
+        new GetLaunchableInfoTask(pm, PREVIEW_ICON_NUM, (aiList) -> {
             for (int i = 0; i < icons.length; i++) {
                 icons[i].setImageDrawable(iconProvider.getIcon(
                         aiList.get(i), PREVIEW_ICON_DPI));
