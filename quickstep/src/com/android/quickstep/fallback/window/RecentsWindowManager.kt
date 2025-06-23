@@ -417,6 +417,10 @@ class RecentsWindowManager(context: Context) :
         return actionsView
     }
 
+    override fun getMemInfoView(): MemInfoView? {
+        return memInfoView
+    }
+
     override fun addForceInvisibleFlag(flag: Int) {}
 
     override fun clearForceInvisibleFlag(flag: Int) {}
