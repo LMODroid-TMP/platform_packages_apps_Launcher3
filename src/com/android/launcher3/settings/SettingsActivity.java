@@ -63,6 +63,8 @@ import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 public class SettingsActivity extends CollapsingToolbarBaseActivity
         implements OnPreferenceStartFragmentCallback, OnPreferenceStartScreenCallback {
 
+    public static final String FIXED_LANDSCAPE_MODE = "pref_fixed_landscape_mode";
+
     public static final String EXTRA_FRAGMENT_ARGS = ":settings:fragment_args";
 
     // Intent extra to indicate the pref-key to highlighted when opening the settings activity
