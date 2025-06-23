@@ -139,7 +139,7 @@ public class WorkProfileManager extends UserProfileManager
         } else if (getCurrentState() == STATE_DISABLED) {
             detachWorkUtilityViews();
         }
-        if (mWorkModeSwitch != null) {
+        if (mWorkUtilityView != null) {
             updateWorkUtilityViews(mAllApps.getCurrentPage());
         }
     }
